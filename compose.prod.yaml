@@ -16,6 +16,8 @@ services:
     networks:
       - laravel-production
     # Port mapping removed - Dokploy's reverse proxy (Traefik) will handle routing
+    expose:
+      - 80
     # The Nginx container still runs on port 80 internally for container-to-container communication
     depends_on:
       php-fpm:
@@ -57,6 +59,8 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD:-root}
     volumes:
       - mysql-data-production:/var/lib/mysql
+    ports:
+      - "3306:3306"
     networks:
       - laravel-production
     # Health check for MySQL
@@ -70,22 +74,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-  redis:
-    image: redis:alpine
-    restart: unless-stopped  # Automatically restart unless the service is explicitly stopped
-    networks:
-      - laravel-production
-    # Health check for Redis
-    # -----------------------------------------------------------
-    # Checks if Redis is responding to the 'PING' command.
-    # This ensures that the service is not only running but also operational.
-    # -----------------------------------------------------------
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
 
 networks:
   # Attach the service to the 'laravel' network.
