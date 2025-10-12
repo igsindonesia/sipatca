@@ -16,10 +16,10 @@ services:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sipatca-nginx.rule=Host(`${APP_DOMAIN}`)"
-      - "traefik.http.routers.sipatca-nginx.entrypoints=websecure"
-      - "traefik.http.routers.sipatca-nginx.tls.certresolver=letsencrypt"
-      - "traefik.http.services.sipatca-nginx.loadbalancer.server.port=80"
+      - "traefik.http.routers.sipatca-app-nginx.rule=Host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.sipatca-app-nginx.entrypoints=websecure"
+      - "traefik.http.routers.sipatca-app-nginx.tls.certresolver=letsencrypt"
+      - "traefik.http.services.sipatca-app-nginx.loadbalancer.server.port=80"
 
   php-fpm:
     build:
