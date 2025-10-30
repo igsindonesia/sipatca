@@ -157,6 +157,13 @@
     </ul>
   </li>
 
+  <li class="menu-header">Pengguna</li>
+  @if(Auth::guard('employee')->user()->position->level == 0)
+    <li>
+      <a class="nav-link" href="{{ route('admin.user.index') }}"><i class="fas fa-user-friends"></i> <span>Mahasiswa</span></a>
+    </li>
+  @endif
+
   <li class="menu-header">Pengaturan</li>
   @if(Auth::guard('employee')->user()->position->level == 0)
     <li>

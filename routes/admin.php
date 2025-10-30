@@ -33,6 +33,9 @@ use App\Http\Controllers\Admin\SuratLainnya\PengunduranDiriController;
 // Bagian Akun Admin
 use App\Http\Controllers\Admin\Account\AccountController;
 
+// Bagian Pengguna
+use App\Http\Controllers\Admin\User\UserController;
+
 // Bagian Setting Profile
 use App\Http\Controllers\Admin\Profile\ProfileController;
 
@@ -167,6 +170,11 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::post('store', [AccountController::class, 'store'])->name('store');
         Route::post('update/{account}', [AccountController::class, 'update'])->name('update');
         Route::get('destroy/{account}', [AccountController::class, 'destroy'])->name('destroy');
+    });
+
+    // Bagian Pengguna
+    Route::group(['prefix' => 'users', 'as' => 'user.'], function () {
+        Route::get('', [UserController::class, 'index'])->name('index');
     });
 
     // Bagian Setting Profile
