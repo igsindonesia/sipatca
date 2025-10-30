@@ -160,7 +160,10 @@
   <li class="menu-header">Pengguna</li>
   @if(Auth::guard('employee')->user()->position->level == 0)
     <li>
-      <a class="nav-link" href="{{ route('admin.user.index') }}"><i class="fas fa-user-friends"></i> <span>Mahasiswa</span></a>
+      <a class="nav-link" href="{{ route('admin.user.index') }}"><i class="fas fa-user-graduate"></i> <span>Mahasiswa</span></a>
+    </li>
+    <li>
+      <a class="nav-link" href="{{ route('admin.lecturer.index') }}"><i class="fas fa-chalkboard-teacher"></i> <span>Dosen</span></a>
     </li>
   @endif
 

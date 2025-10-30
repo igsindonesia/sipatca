@@ -177,6 +177,16 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('', [UserController::class, 'index'])->name('index');
     });
 
+    // Bagian Dosen
+    Route::group(['prefix' => 'lecturers', 'as' => 'lecturer.'], function () {
+        Route::get('', [UserController::class, 'lecturers'])->name('index');
+        Route::get('create', [UserController::class, 'createLecturer'])->name('create');
+        Route::post('', [UserController::class, 'storeLecturer'])->name('store');
+        Route::get('{user}/edit', [UserController::class, 'editLecturer'])->name('edit');
+        Route::post('{user}', [UserController::class, 'updateLecturer'])->name('update');
+        Route::get('{user}/delete', [UserController::class, 'destroyLecturer'])->name('destroy');
+    });
+
     // Bagian Setting Profile
     Route::group(['prefix' => 'profil', 'as' => 'profile.'], function () {
         Route::get('', [ProfileController::class, 'index'])->name('index');

@@ -3,14 +3,13 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Data Mahasiswa</h1>
+        <h1>Data Dosen</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{ route('admin.index') }}">Dashboard</a></div>
             <div class="breadcrumb-item">Pengguna</div>
-            <div class="breadcrumb-item">Mahasiswa</div>
+            <div class="breadcrumb-item">Dosen</div>
         </div>
     </div>
-
     <div class="section-body">
         <div class="row">
             <div class="col">
@@ -18,15 +17,18 @@
                     <div class="card-header">
                         <div class="flex-fill row">
                             <div class="col">
-                                <h4>Data Mahasiswa Terdaftar</h4>
+                                <h4>Data Dosen Terdaftar</h4>
                             </div>
                             <div class="col-auto text-right">
-                                <form method="GET" action="{{ route('admin.user.index') }}" class="form-inline">
+                                <form method="GET" action="{{ route('admin.lecturer.index') }}" class="form-inline">
                                     <div class="form-group">
-                                        <input type="text" name="search" class="form-control" placeholder="Cari nama, email, atau NIM..." value="{{ request('search') }}">
+                                        <input type="text" name="search" class="form-control" placeholder="Cari nama, email, atau NIP..." value="{{ request('search') }}">
                                         <button type="submit" class="btn btn-primary ml-2"><i class="fas fa-search"></i></button>
                                     </div>
                                 </form>
+                            </div>
+                            <div class="col-auto text-right">
+                                <a class="btn btn-primary btn-icon icon-left note-btn" href="{{ route('admin.lecturer.create') }}"><i class="fas fa-plus"></i> Tambah</a>
                             </div>
                         </div>
                     </div>
@@ -38,9 +40,10 @@
                                     <th>Nama</th>
                                     <th>Email</th>
                                     <th>Prodi</th>
-                                    <th>NIM</th>
+                                    <th>NIP</th>
                                     <th>Status Verifikasi</th>
                                     <th>Tanggal Daftar</th>
+                                    <th>Action</th>
                                 </tr>
                                 @foreach($users as $key => $user)
                                 <tr>
@@ -57,6 +60,10 @@
                                         @endif
                                     </td>
                                     <td>{{ $user->created_at->format('d/m/Y') }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.lecturer.edit', $user) }}" class="btn btn-primary mr-2">Edit</a>
+                                        <a href="{{ route('admin.lecturer.destroy', $user) }}" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus dosen ini?')">Hapus</a>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </table>
