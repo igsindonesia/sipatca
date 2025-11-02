@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\UserType;
 use App\Models\Submission;
 use App\Models\Employee\EmployeePosition;
 use Illuminate\Support\Facades\Auth;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class SubmissionBadgeService
 {
     protected $userPosition;
-    
+
     public function __construct()
     {
         $this->userPosition = Auth::guard('employee')->user()->position ?? null;
@@ -52,11 +53,11 @@ class SubmissionBadgeService
     public function getCategoryCount($types)
     {
         $totalCount = 0;
-        
+
         foreach ($types as $type) {
             $totalCount += $this->getSubmissionCount($type);
         }
-        
+
         return $totalCount;
     }
 
@@ -65,23 +66,42 @@ class SubmissionBadgeService
      */
     public function getAllSubmissionCounts()
     {
-        $categories = [
-            'surat-pengantar' => ['pkl', 'skripsi', 'penelitian-matkul'],
-            'surat-keterangan' => ['aktif-kuliah', 'bebas-sanksi-akademik'],
-            'surat-rekomendasi' => ['beasiswa', 'mbkm', 'non-mbkm'],
-            'surat-lainnya' => ['transkrip', 'cuti', 'transfer', 'pengunduran-diri']
+        $documents = [
+            UserType::Student => [
+                'surat-pengantar' => ['pkl', 'skripsi', 'penelitian-matkul'],
+                'surat-keterangan' => ['aktif-kuliah', 'bebas-sanksi-akademik'],
+                'surat-rekomendasi' => ['beasiswa', 'mbkm', 'non-mbkm'],
+                'surat-lainnya' => ['transkrip', 'cuti', 'transfer', 'pengunduran-diri']
+            ],
+            UserType::Lecturer => [
+                'surat-tugas' => ['dosen-st-hki', 'dosen-st-pengabdian', 'dosen-st-publikasi'],
+                'surat-lainnya' => ['dosen-cuti'],
+            ]
         ];
 
         $counts = [];
-        
-        foreach ($categories as $category => $types) {
-            $counts[$category] = [
-                'total' => $this->getCategoryCount($types),
-                'types' => []
+
+        foreach ($documents as $userType => $categories) {
+            $counts[$userType] = [
+                'total' => 0,
+                'categories' => []
             ];
-            
-            foreach ($types as $type) {
-                $counts[$category]['types'][$type] = $this->getSubmissionCount($type);
+
+            $documentCategories = &$counts[$userType]['categories'];
+
+            foreach ($categories as $category => $types) {
+                $documentCategories[$category] = [
+                    'total' => 0,
+                    'types' => []
+                ];
+                $categoryRef = &$documentCategories[$category];
+
+                foreach ($types as $type) {
+                    $categoryRef['types'][$type] = $this->getSubmissionCount($type);
+                    $categoryRef['total'] += $categoryRef['types'][$type];
+                }
+
+                $counts[$userType]['total'] += $categoryRef['total'];
             }
         }
 
@@ -96,7 +116,7 @@ class SubmissionBadgeService
         if ($count > 0) {
             return '<span class="badge ' . $classes . '">' . $count . '</span>';
         }
-        
+
         return '';
     }
 }

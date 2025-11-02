@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             UserSeeder::class,
             SubmissionSeeder::class,
+            LecturerSubmissionSeeder::class,
         ]);
     }
 }

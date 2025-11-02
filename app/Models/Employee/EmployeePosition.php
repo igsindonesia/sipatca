@@ -90,6 +90,20 @@ class EmployeePosition extends Model
                 return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
                 break;
 
+            // Bagian Surat Dosen
+            case 'dosen-cuti': // cuti dosen hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
+            case 'dosen-st-hki': // surat tugas hki hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
+            case 'dosen-st-pengabdian': // surat tugas pengabdian hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
+            case 'dosen-st-publikasi': // surat tugas publikasi hanya boleh: admin, dekan, wadek-1
+                return in_array($this->code, [$this->masterCodes[0], $this->masterCodes[1], $this->masterCodes[2]]);
+                break;
+
             // Default
             default:
                 return false;

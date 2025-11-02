@@ -30,6 +30,12 @@ use App\Http\Controllers\Admin\SuratLainnya\CutiController;
 use App\Http\Controllers\Admin\SuratLainnya\TransferController;
 use App\Http\Controllers\Admin\SuratLainnya\PengunduranDiriController;
 
+// Bagian Surat Dosen
+use App\Http\Controllers\Admin\Lecturer\SuratLainnya\CutiController as DosenCutiController;
+use App\Http\Controllers\Admin\Lecturer\SuratTugas\HkiController;
+use App\Http\Controllers\Admin\Lecturer\SuratTugas\PengabdianController;
+use App\Http\Controllers\Admin\Lecturer\SuratTugas\PublikasiController;
+
 // Bagian Akun Admin
 use App\Http\Controllers\Admin\Account\AccountController;
 
@@ -160,6 +166,33 @@ Route::group(['middleware' => 'auth.employee'], function () {
         Route::get('pengunduran-diri/{submission}', [PengunduranDiriController::class, 'show'])->name('pengunduran-diri.show');
         Route::post('pengunduran-diri/{submission}', [PengunduranDiriController::class, 'update'])->name('pengunduran-diri.update');
         Route::get('pengunduran-diri/preview/{submission}', [PengunduranDiriController::class, 'preview'])->name('pengunduran-diri.preview');
+    });
+
+    // Bagian Surat Dosen
+    Route::group(['prefix' => 'surat-lainnya-dosen', 'as' => 'surat-lainnya-dosen.'], function () {
+        // Bagian Cuti Dosen
+        Route::get('cuti', [DosenCutiController::class, 'index'])->name('cuti.index');
+        Route::get('cuti/{submission}', [DosenCutiController::class, 'show'])->name('cuti.show');
+        Route::post('cuti/{submission}', [DosenCutiController::class, 'update'])->name('cuti.update');
+        Route::get('cuti/preview/{submission}', [DosenCutiController::class, 'preview'])->name('cuti.preview');
+
+        // Bagian Surat Tugas HKI
+        Route::get('hki', [HkiController::class, 'index'])->name('hki.index');
+        Route::get('hki/{submission}', [HkiController::class, 'show'])->name('hki.show');
+        Route::post('hki/{submission}', [HkiController::class, 'update'])->name('hki.update');
+        Route::get('hki/preview/{submission}', [HkiController::class, 'preview'])->name('hki.preview');
+
+        // Bagian Surat Tugas Pengabdian
+        Route::get('pengabdian', [PengabdianController::class, 'index'])->name('pengabdian.index');
+        Route::get('pengabdian/{submission}', [PengabdianController::class, 'show'])->name('pengabdian.show');
+        Route::post('pengabdian/{submission}', [PengabdianController::class, 'update'])->name('pengabdian.update');
+        Route::get('pengabdian/preview/{submission}', [PengabdianController::class, 'preview'])->name('pengabdian.preview');
+
+        // Bagian Surat Tugas Publikasi
+        Route::get('publikasi', [PublikasiController::class, 'index'])->name('publikasi.index');
+        Route::get('publikasi/{submission}', [PublikasiController::class, 'show'])->name('publikasi.show');
+        Route::post('publikasi/{submission}', [PublikasiController::class, 'update'])->name('publikasi.update');
+        Route::get('publikasi/preview/{submission}', [PublikasiController::class, 'preview'])->name('publikasi.preview');
     });
 
     // Bagian Akun Admin

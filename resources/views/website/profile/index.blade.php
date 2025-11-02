@@ -1,6 +1,11 @@
 @extends('website.layout')
 
 @section('content')
+@php
+    $userType = Auth::user()->type ?? 'student';
+    $userTypeLabel = $userType === 'lecturer' ? 'Dosen' : 'Mahasiswa';
+    $registrationLabel = $userType === 'lecturer' ? 'NIP' : 'NPM';
+@endphp
 <!-- ======= Breadcrumbs ======= -->
 <section class="breadcrumbs">
   <div class="container">
@@ -8,7 +13,7 @@
       <li><a href="{{ route('index') }}">Beranda</a></li>
       <li>Profil</li>
     </ol>
-    <h2>Profil Mahasiswa</h2>
+    <h2>Profil {{ $userTypeLabel }}</h2>
   </div>
 </section><!-- End Breadcrumbs -->
 
@@ -27,7 +32,7 @@
       @endif
 
       <div class="row mb-3">
-        <h5 class="fw-bold">Informasi Mahasiswa</h5>
+        <h5 class="fw-bold">Informasi {{ $userTypeLabel }}</h5>
         <div class="col">
           <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
           <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ Auth::user()->name }}" required>
@@ -46,7 +51,7 @@
           <input type="text" class="form-control" value="{{ Auth::user()->department->name }}" readonly>
         </div>
         <div class="col">
-          <label class="form-label">NPM Mahasiswa <span class="text-danger">*</span></label>
+          <label class="form-label">{{ $registrationLabel }} {{ $userTypeLabel }} <span class="text-danger">*</span></label>
           <input type="text" class="form-control" value="{{ Auth::user()->registration_number }}" readonly>
         </div>
       </div>

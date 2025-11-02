@@ -27,6 +27,12 @@ use App\Http\Controllers\Website\SuratLainnya\TranskripController;
 use App\Http\Controllers\Website\SuratLainnya\CutiController;
 use App\Http\Controllers\Website\SuratLainnya\TransferController;
 use App\Http\Controllers\Website\SuratLainnya\PengunduranDiriController;
+use App\Http\Controllers\Website\SuratLainnya\DosenCutiController;
+
+// Controller Surat Tugas Dosen
+use App\Http\Controllers\Website\SuratTugas\HkiController;
+use App\Http\Controllers\Website\SuratTugas\PengabdianController;
+use App\Http\Controllers\Website\SuratTugas\PublikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -150,6 +156,45 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/', [PengunduranDiriController::class, 'index'])->name('index');
                 Route::post('/', [PengunduranDiriController::class, 'store'])->name('store');
                 Route::get('/preview/{submission}', [PengunduranDiriController::class, 'preview'])->name('preview');
+            });
+        });
+    });
+});
+
+// Lecturer routes - requires lecturer user and verified email
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::middleware('lecturer.user')->group(function () {
+        // Bagian Surat Lainnya Dosen
+        Route::group(['prefix' => 'surat-lainnya-dosen', 'as' => 'surat-lainnya-dosen.'], function () {
+            // Bagian Cuti Dosen
+            Route::group(['prefix' => 'cuti', 'as' => 'cuti.'], function () {
+                Route::get('/', [DosenCutiController::class, 'index'])->name('index');
+                Route::post('/', [DosenCutiController::class, 'store'])->name('store');
+                Route::get('/preview/{submission}', [DosenCutiController::class, 'preview'])->name('preview');
+            });
+        });
+
+        // Bagian Surat Tugas Dosen
+        Route::group(['prefix' => 'surat-tugas-dosen', 'as' => 'surat-tugas-dosen.'], function () {
+            // Bagian HKI
+            Route::group(['prefix' => 'hki', 'as' => 'hki.'], function () {
+                Route::get('/', [HkiController::class, 'index'])->name('index');
+                Route::post('/', [HkiController::class, 'store'])->name('store');
+                Route::get('/preview/{submission}', [HkiController::class, 'preview'])->name('preview');
+            });
+
+            // Bagian Pengabdian
+            Route::group(['prefix' => 'pengabdian', 'as' => 'pengabdian.'], function () {
+                Route::get('/', [PengabdianController::class, 'index'])->name('index');
+                Route::post('/', [PengabdianController::class, 'store'])->name('store');
+                Route::get('/preview/{submission}', [PengabdianController::class, 'preview'])->name('preview');
+            });
+
+            // Bagian Publikasi
+            Route::group(['prefix' => 'publikasi', 'as' => 'publikasi.'], function () {
+                Route::get('/', [PublikasiController::class, 'index'])->name('index');
+                Route::post('/', [PublikasiController::class, 'store'])->name('store');
+                Route::get('/preview/{submission}', [PublikasiController::class, 'preview'])->name('preview');
             });
         });
     });

@@ -52,6 +52,16 @@
     z-index: 10;
 }
 
+/* Badge position for level 2 menus (Surat Pengantar, etc.) */
+.main-sidebar .sidebar-menu > li.dropdown > ul.dropdown-menu > li.nav-item.dropdown > a.nav-link .badge {
+    left: 32px;
+}
+
+/* Badge position for level 3 menus (PKL, Skripsi, etc.) */
+.main-sidebar .sidebar-menu li ul.dropdown-menu li ul.dropdown-menu li a .badge {
+    left: 15px;
+}
+
 /* No need to adjust dropdown arrow position for left-positioned badges */
 
 /* Handle double-digit numbers */
@@ -96,4 +106,24 @@
 
 .custom-file-label {
     top: auto;
+}
+
+/* Nested Dropdown Styling */
+.main-sidebar .sidebar-menu li ul.dropdown-menu li ul.dropdown-menu {
+    display: none;
+    padding-left: 0px;
+}
+
+.main-sidebar .sidebar-menu li ul.dropdown-menu li.active > ul.dropdown-menu {
+    display: block;
+}
+
+/* Reduce indentation for level 2 dropdown menus inside Mahasiswa/Dosen (Surat Pengantar, etc.) */
+.main-sidebar .sidebar-menu > li.dropdown > ul.dropdown-menu > li.nav-item.dropdown > a.nav-link {
+    padding-left: 15px !important;
+}
+
+/* Level 3 dropdown menus (PKL, Skripsi, etc.) */
+.main-sidebar .sidebar-menu li ul.dropdown-menu li ul.dropdown-menu li a {
+    padding-left: 36px !important;
 }

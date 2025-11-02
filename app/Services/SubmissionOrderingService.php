@@ -106,6 +106,10 @@ class SubmissionOrderingService
             9 => 'beasiswa',
             10 => 'mbkm',
             11 => 'non-mbkm',
+            12 => 'dosen-cuti',
+            13 => 'dosen-st-hki',
+            14 => 'dosen-st-pengabdian',
+            15 => 'dosen-st-publikasi',
         ];
         
         return $types[$typeIndex] ?? '';

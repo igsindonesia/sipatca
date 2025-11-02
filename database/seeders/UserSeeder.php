@@ -17,9 +17,19 @@ class UserSeeder extends Seeder
     {
         User::create([
             'department_id' => 1,
-            'name' => 'Anwarul Fattach',
-            'email' => '18081010097@student.upnjatim.ac.id',
-            'registration_number' => '18081010097',
+            'name' => 'Heaven Ade Aldrico',
+            'email' => '22081010158@student.upnjatim.ac.id',
+            'registration_number' => '22081010158',
+            'email_verified_at' => Carbon::now(),
+            'password' => Hash::make('pastibisa'),
+        ]);
+
+        User::create([
+            'type' => 'lecturer',
+            'department_id' => 1,
+            'name' => 'Dosen',
+            'email' => 'dosen@example.com',
+            'registration_number' => '198503201999031001',
             'email_verified_at' => Carbon::now(),
             'password' => Hash::make('pastibisa'),
         ]);

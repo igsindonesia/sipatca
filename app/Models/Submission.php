@@ -14,6 +14,7 @@ class Submission extends Model
 
     protected $fillable = [
         'user_id',
+        'user_type',
         'type',
         'data',
         'verified_at',
@@ -29,6 +30,7 @@ class Submission extends Model
     ];
 
     public const TYPES = [
+        // Mahasiswa
         'pkl', // 0. Surat pengajuan pkl
         'skripsi', // 1. Surat pengajuan skripsi
         'penelitian-matkul', // 2. Surat pengantar penelitian matkul
@@ -41,6 +43,12 @@ class Submission extends Model
         'beasiswa', // 9. Surat Rekomendasi Beasiswa
         'mbkm', // 10. Surat Rekomendasi MBKM
         'non-mbkm', // 11. Surat Rekomendasi Non-MBKM
+
+        // Dosen
+        'dosen-cuti', // 12. Surat Cuti Dosen
+        'dosen-st-hki', // 13. Surat Tugas HKI
+        'dosen-st-pengabdian', // 14. Surat Tugas Pengabdian Masyarakat
+        'dosen-st-publikasi', // 15. Surat Tugas Publikasi Jurnal
     ];
 
     public const ROMAN_MONTH = [
