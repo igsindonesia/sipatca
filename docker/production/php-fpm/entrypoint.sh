@@ -15,6 +15,13 @@ fi
 # Remove storage-init directory
 rm -rf /var/www/storage-init
 
+# Create storage symlink
+# -----------------------------------------------------------
+# Creates public/storage symlink to storage/app/public
+# for serving uploaded files via the web server.
+# -----------------------------------------------------------
+php artisan storage:link
+
 # Run Laravel migrations
 # -----------------------------------------------------------
 # Ensure the database schema is up to date.
