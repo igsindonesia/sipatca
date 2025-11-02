@@ -190,7 +190,7 @@
                 <tr>
                     <td class="vertical-align-top" width="230px">Fakultas</td>
                     <td class="vertical-align-top" width="5px">:</td>
-                    <td class="vertical-align-top">Ilmu Komputer</td>
+                    <td class="vertical-align-top">Hukum</td>
                 </tr>
                 <tr>
                     <td class="vertical-align-top" width="230px">Program Studi</td>

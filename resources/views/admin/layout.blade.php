@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>SIPATCA - Fakultas Hukum</title>
+  <title>SILAKSA - Fakultas Hukum</title>
   <link href="{{ asset('website/img/favicon.png') }}" rel="icon">
 
   @include('admin.partials.style')
@@ -16,7 +16,7 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="{{ route('admin.index') }}">SIPATCA</a>
+            <a href="{{ route('admin.index') }}">SILAKSA</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{ route('admin.index') }}">SPC</a>

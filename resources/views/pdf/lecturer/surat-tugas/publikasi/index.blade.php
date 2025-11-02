@@ -200,7 +200,7 @@ $data = is_string($submission->data) ? json_decode($submission->data, true) : $s
                 <td>Dasar</td>
                 <td>:</td>
                 <td>
-                    Program kegiatan akademik Fakultas Ilmu Komputer Universitas Pembangunan
+                    Program kegiatan akademik Fakultas hukum Universitas Pembangunan
                     Nasional "Veteran" Jawa Timur khususnya di bidang akademik, pendidikan,
                     dan pengajaran semester {{ $data['semester'] }}.
                 </td>
@@ -277,7 +277,7 @@ $data = is_string($submission->data) ? json_decode($submission->data, true) : $s
             <tr>
                 <td colspan="3" class="text-indent">
                     Setelah pelaksanaan tugas, maka segera menyampaikan laporan kepada Dekan
-                    Fakultas Ilmu Komputer, Universitas Pembangunan Nasional ”Veteran” Jawa Timur. Surat
+                    Fakultas hukum, Universitas Pembangunan Nasional ”Veteran” Jawa Timur. Surat
                     Tugas ini dibuat untuk dilaksanakan dengan penuh tanggung jawab.
                 </td>
             </tr>

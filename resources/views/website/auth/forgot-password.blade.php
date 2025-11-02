@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>SIPATCA - Fakultas Hukum</title>
+        <title>SILAKSA - Fakultas Hukum</title>
         <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="description">
         <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="keywords">
 
@@ -89,7 +89,7 @@
             <div class="login-form">
                 <a href="{{ route('index') }}" class="logo d-flex align-items-center justify-content-center mb-2">
                     <img src="{{ asset('website/img/logo-upn.png') }}" alt="logo upn">
-                    <span>SIPATCA</span>
+                    <span>SILAKSA</span>
                 </a>
 
                 <div class="intro-text">

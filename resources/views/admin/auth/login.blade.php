@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>SIPATCA - Fakultas Hukum</title>
+  <title>SILAKSA - Fakultas Hukum</title>
   <link href="{{ asset('website/img/favicon.png') }}" rel="icon">
 
   {{-- <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css"> --}}
@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
           <div class="login-brand">
-            SIPATCA
+            SILAKSA
           </div>
 
           <div class="card card-primary">

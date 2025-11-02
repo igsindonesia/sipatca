@@ -200,7 +200,7 @@ $data = json_decode($submission->data, true)
                 <td>Dasar</td>
                 <td>:</td>
                 <td>
-                    Program kegiatan akademik Fakultas Ilmu Komputer Universitas Pembangunan
+                    Program kegiatan akademik Fakultas hukum Universitas Pembangunan
                     Nasional "Veteran" Jawa Timur khususnya di bidang akademik, pendidikan,
                     dan pengajaran semester {{ $data['semester'] }}.
                 </td>

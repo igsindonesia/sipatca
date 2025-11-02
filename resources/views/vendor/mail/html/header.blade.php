@@ -8,7 +8,7 @@
                         <img src="{{ asset('website/img/logo-upn.png') }}" alt="logo upn" style="display: block; max-height: 50px; margin: 0; border: 0;">
                     </td>
                     <td style="padding-left: 10px; vertical-align: middle;">
-                        <span style="font-size: 30px; font-weight: bold; color: #333; font-family: 'Nunito', sans-serif;">SIPATCA</span>
+                        <span style="font-size: 30px; font-weight: bold; color: #333; font-family: 'Nunito', sans-serif;">SILAKSA</span>
                     </td>
                 </tr>
             </table>

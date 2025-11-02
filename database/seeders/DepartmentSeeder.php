@@ -15,24 +15,9 @@ class DepartmentSeeder extends Seeder
     {
         $departments = [
             [
-                'name' => 'Informatika',
-                'short_name' => 'IF',
-                'description' => 'Jurusan Informatika',
-            ],
-            [
-                'name' => 'Sistem Informasi',
-                'short_name' => 'SI',
-                'description' => 'Jurusan Sistem Informasi',
-            ],
-            [
-                'name' => 'Sains Data',
-                'short_name' => 'SD',
-                'description' => 'Jurusan Sains Data',
-            ],
-            [
-                'name' => 'Bisnis Digital',
-                'short_name' => 'DB',
-                'description' => 'Jurusan Bisnis Digital',
+                'name' => 'Hukum',
+                'short_name' => 'FH',
+                'description' => 'Jurusan Hukum',
             ],
         ];
 

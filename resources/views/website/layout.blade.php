@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SIPATCA - Fakultas Hukum</title>
+  <title>SILAKSA - Fakultas Hukum</title>
   <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="description">
   <meta content="Sistem Informasi Pelayanan Administrasi Terpadu Civitas Akamedik" name="keywords">
 
